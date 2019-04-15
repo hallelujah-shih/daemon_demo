@@ -1,0 +1,17 @@
+manager_config:
+  serve_addr: "localhost:1234"
+
+process_configs:
+  process_name1:
+    soft_limit:
+      limit_file_descriptor: 65536
+    uid_gid: ""
+    envs:
+      - http_proxy=http://127.0.0.1:8888/
+      - https_proxy=http://127.0.0.1:8888/
+      - PATH=/python_env_path_bin:$PATH
+    command: "python"
+    command_args:
+      - "hello.py"
+    stderr_path: "err.log"
+    stdout_path: "out.log"
